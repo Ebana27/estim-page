@@ -1,9 +1,14 @@
 :root {
-  --vert: #2d5a27;
-  --vert-light: #4a8c3f;
-  --vert-pale: #e8f5e3;
-  --jaune: #ffd700;
+  /* ═══ JAUNE = dominant ═══ */
+  --jaune: #f0cc00;
+  --jaune-hover: #dabb00;
   --jaune-pale: #fff9e0;
+  --jaune-ghost: rgba(240, 204, 0, 0.08);
+
+  /* ═══ VERT = très subtil, juste une touche ═══ */
+  --vert: #49a539;
+  --vert-pale: #e8f5e3;
+
   --noir: #1a1a1a;
   --blanc: #ffffff;
   --gris: #6b7280;
@@ -27,6 +32,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0 80px 0 80px;
 }
 
 /* ═══════════════════ NAVIGATION ═══════════════════ */
@@ -43,19 +49,28 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: 4px;
-  color: var(--vert);
+  color: var(--jaune);
   user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand img {
+  width: 48px;
+  height: 40px;
 }
 
 .btn-nav {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 11px 26px;
-  border: 2px solid var(--vert);
+  border: 2px solid var(--noir);
   border-radius: 50px;
   text-decoration: none;
-  color: var(--vert);
+  color: var(--noir);
   font-family: inherit;
   font-weight: 700;
   font-size: 0.88rem;
@@ -63,13 +78,22 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   background: transparent;
+  max-width: 30%;
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-nav:hover {
-  background: var(--vert);
-  color: white;
+  background: var(--noir);
+  color: var(--blanc);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(45, 90, 39, 0.2);
+  box-shadow: 0 6px 24px rgba(240, 204, 0, 0.35);
+  -webkit-transform: translateY(-1px);
+  -moz-transform: translateY(-1px);
+  -ms-transform: translateY(-1px);
+  -o-transform: translateY(-1px);
 }
 
 .btn-nav svg {
@@ -111,8 +135,8 @@ body {
   align-items: center;
   gap: 8px;
   padding: 7px 18px;
-  background: var(--vert-pale);
-  color: var(--vert);
+  background: var(--jaune-ghost);
+  color: var(--jaune-hover);
   border-radius: 50px;
   font-size: 0.82rem;
   font-weight: 700;
@@ -135,7 +159,7 @@ body {
 }
 
 .highlight {
-  color: var(--vert);
+  color: var(--jaune);
   position: relative;
 }
 
@@ -185,14 +209,14 @@ body {
 }
 
 .dl-btn-android {
-  background: var(--vert);
-  color: white;
+  background: var(--jaune);
+  color: var(--noir);
 }
 
 .dl-btn-android:hover {
-  background: var(--vert-light);
+  background: var(--jaune-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(45, 90, 39, 0.2);
+  box-shadow: 0 12px 32px rgba(240, 204, 0, 0.35);
 }
 
 .dl-btn-icon {
@@ -207,7 +231,7 @@ body {
 
 .dl-btn-small {
   font-size: 0.68rem;
-  opacity: 0.7;
+  opacity: 0.6;
   font-weight: 500;
   display: block;
   line-height: 1.2;
@@ -275,40 +299,6 @@ body {
   display: block;
 }
 
-.screen-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(160deg, var(--vert-pale) 0%, #c8e6c0 50%, #e8f5e3 100%);
-  color: var(--vert);
-  gap: 16px;
-  padding: 40px;
-  text-align: center;
-}
-
-.screen-placeholder-icon {
-  width: 56px;
-  height: 56px;
-  opacity: 0.4;
-}
-
-.screen-placeholder-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 4px;
-  opacity: 0.35;
-}
-
-.screen-placeholder-text {
-  font-size: 0.78rem;
-  font-weight: 600;
-  opacity: 0.35;
-  line-height: 1.5;
-}
-
 .dynamic-island {
   position: absolute;
   top: 16px;
@@ -330,55 +320,56 @@ body {
 }
 
 .deco-1 {
-  width: 220px;
-  height: 220px;
-  background: var(--vert-pale);
-  top: -50px;
-  right: -70px;
+  width: 240px;
+  height: 240px;
+  background: var(--jaune-pale);
+  top: -60px;
+  right: -80px;
   filter: blur(70px);
-  opacity: 0.6;
+  opacity: 0.7;
   animation: drift 9s ease-in-out infinite;
 }
 
 .deco-2 {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   background: var(--jaune-pale);
-  bottom: 80px;
-  left: -60px;
-  filter: blur(55px);
-  opacity: 0.75;
+  bottom: 60px;
+  left: -70px;
+  filter: blur(60px);
+  opacity: 0.5;
   animation: drift 11s ease-in-out infinite reverse;
 }
 
+/* ═══ Seule touche de vert dans toute la page ═══ */
 .deco-3 {
-  width: 90px;
-  height: 90px;
-  background: var(--jaune);
-  top: 35%;
-  left: -25px;
-  filter: blur(45px);
-  opacity: 0.3;
+  width: 80px;
+  height: 80px;
+  background: var(--vert-pale);
+  top: 38%;
+  left: -20px;
+  filter: blur(40px);
+  opacity: 0.45;
   animation: drift 8s ease-in-out infinite 1s;
 }
 
 .deco-4 {
-  width: 70px;
-  height: 70px;
-  background: var(--vert-light);
-  bottom: -10px;
-  right: 30px;
-  filter: blur(40px);
-  opacity: 0.35;
+  width: 60px;
+  height: 60px;
+  background: var(--jaune);
+  bottom: 0;
+  right: 20px;
+  filter: blur(35px);
+  opacity: 0.25;
   animation: drift 10s ease-in-out infinite 2s;
 }
 
-/* Pills flottantes */
+/* ═══════════════════ PILLS FLOTTANTES ═══════════════════ */
 .feature-pill {
   position: absolute;
   z-index: 3;
   background: white;
-  padding: 11px 18px;
+  padding: 12px 18px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -400,41 +391,35 @@ body {
 .pill-1 {
   top: 6%;
   right: -35px;
-  color: var(--vert);
+  color: var(--jaune-hover);
+  animation: floatPill 5s ease-in-out infinite;
 }
 .pill-1 svg {
-  color: var(--vert);
+  color: var(--jaune);
 }
 
 .pill-2 {
   top: 42%;
   left: -55px;
-  background: var(--vert);
-  color: white;
+  background: var(--jaune);
+  color: var(--noir);
+  animation: floatPill 6s ease-in-out infinite 1.2s;
 }
 .pill-2 svg {
-  color: white;
+  color: var(--noir);
 }
 
+/* ═══ Seule touche de vert visible (bordure pill) ═══ */
 .pill-3 {
   bottom: 18%;
   right: -25px;
-  border-left: 3px solid var(--jaune);
-}
-
-.pill-1 {
-  animation: floatPill 5s ease-in-out infinite;
-}
-.pill-2 {
-  animation: floatPill 6s ease-in-out infinite 1.2s;
-}
-.pill-3 {
+  border-left: 3px solid var(--vert);
   animation: floatPill 5.5s ease-in-out infinite 0.6s;
 }
 
+/* ═══════════════════ ANIMATIONS ═══════════════════ */
 @keyframes drift {
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
   33% {
@@ -446,8 +431,7 @@ body {
 }
 
 @keyframes floatPill {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
   }
   50% {
@@ -455,31 +439,18 @@ body {
   }
 }
 
-/* ═══════════════════ ANIMATIONS ENTRÉE ═══════════════════ */
 .fade-up {
   opacity: 0;
   transform: translateY(28px);
   animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.d1 {
-  animation-delay: 0.05s;
-}
-.d2 {
-  animation-delay: 0.15s;
-}
-.d3 {
-  animation-delay: 0.25s;
-}
-.d4 {
-  animation-delay: 0.35s;
-}
-.d5 {
-  animation-delay: 0.5s;
-}
-.d6 {
-  animation-delay: 0.65s;
-}
+.d1 { animation-delay: 0.05s; }
+.d2 { animation-delay: 0.15s; }
+.d3 { animation-delay: 0.25s; }
+.d4 { animation-delay: 0.35s; }
+.d5 { animation-delay: 0.5s; }
+.d6 { animation-delay: 0.65s; }
 
 @keyframes fadeUp {
   to {
@@ -512,13 +483,21 @@ body {
 }
 
 @media (max-width: 860px) {
+  body {
+    margin: 0 40px 0 40px;
+  }
   .navbar {
-    padding: 20px 28px;
+    padding: 20px 24px;
   }
 
   .brand {
     font-size: 1.3rem;
     letter-spacing: 3px;
+  }
+
+  .brand img {
+    width: 40px;
+    height: 34px;
   }
 
   .btn-nav {
@@ -527,7 +506,7 @@ body {
   }
 
   .hero {
-    padding: 0 28px 70px;
+    padding: 0 24px 70px;
   }
 
   .hero-inner {
@@ -596,33 +575,50 @@ body {
   }
 
   .deco-1 {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     top: -30px;
     right: -40px;
   }
+
   .deco-2 {
-    width: 110px;
-    height: 110px;
-    bottom: 60px;
+    width: 120px;
+    height: 120px;
+    bottom: 50px;
     left: -30px;
   }
+
   .deco-3 {
     width: 55px;
     height: 55px;
   }
+
   .deco-4 {
     display: none;
   }
 }
 
 @media (max-width: 520px) {
+  body {
+    margin: 0 20px 0 20px;
+  }
   .navbar {
-    padding: 16px 20px;
+    padding: 16px 16px;
   }
 
   .brand {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    letter-spacing: 2px;
+  }
+
+  .brand img {
+    width: 36px;
+    height: 30px;
+  }
+
+  .btn-nav {
+    padding: 10px 14px;
+    border-radius: 50px;
   }
 
   .btn-nav span {
@@ -635,24 +631,25 @@ body {
   }
 
   .hero {
-    padding: 0 20px 60px;
+    padding: 0 16px 60px;
   }
 
   .title {
-    font-size: 2.2rem;
+    font-size: 2rem;
     letter-spacing: -0.5px;
+    line-height: 1.1;
   }
 
   .description {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.65;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
   }
 
   .download-buttons {
     flex-direction: column;
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
   }
 
   .dl-btn {
@@ -662,13 +659,13 @@ body {
   }
 
   .phone-container {
-    width: 250px;
-    height: 510px;
+    width: 240px;
+    height: 490px;
   }
 
   .phone-frame {
-    width: 235px;
-    height: 490px;
+    width: 225px;
+    height: 470px;
     border-radius: 36px;
     padding: 9px;
   }
@@ -678,8 +675,8 @@ body {
   }
 
   .dynamic-island {
-    width: 70px;
-    height: 20px;
+    width: 65px;
+    height: 18px;
     top: 12px;
   }
 
@@ -687,11 +684,49 @@ body {
     width: 100px;
     height: 100px;
   }
+
   .deco-2 {
     width: 80px;
     height: 80px;
   }
+
   .deco-3 {
     display: none;
+  }
+
+  .dl-note {
+    font-size: 0.72rem;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    margin: 0 10px 0 10px;
+  }
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .phone-container {
+    width: 210px;
+    height: 440px;
+  }
+
+  .phone-frame {
+    width: 198px;
+    height: 420px;
+    border-radius: 32px;
+    padding: 8px;
+  }
+
+  .phone-screen {
+    border-radius: 24px;
+  }
+
+  .dynamic-island {
+    width: 55px;
+    height: 16px;
+    top: 10px;
   }
 }
