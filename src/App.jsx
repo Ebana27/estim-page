@@ -3,7 +3,7 @@ import "./App.css";
 
 // 💡 NOTES SUR LES CHEMINS :
 // Les fichiers placés dans le dossier "public" s'appellent depuis la racine "/".
-const PWA_URL = "https://amazing-sfogliatella-c713d8.netlify.app/";
+const PWA_URL = "https://iphone-estim-app.netlify.app";
 const APK_URL = "/app/apk/estim-app.apk"; // Assure-toi que le fichier est bien dans public/app/apk/
 const SCREENSHOT_URL = "/img/screenshot_home_app.png"; // Assure-toi que le fichier est bien dans public/img/screenshot_home_app.png
 const LOGO_URL = "/img/logo.png"; // Assure-toi que le fichier est bien dans public/img/logo.png
